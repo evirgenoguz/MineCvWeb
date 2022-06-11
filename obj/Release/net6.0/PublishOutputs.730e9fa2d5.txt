@@ -1,0 +1,7 @@
+D:\Dev\Web\MineCv\bin\Release\net6.0\publish\MineCv.exe
+D:\Dev\Web\MineCv\bin\Release\net6.0\publish\appsettings.Development.json
+D:\Dev\Web\MineCv\bin\Release\net6.0\publish\appsettings.json
+D:\Dev\Web\MineCv\bin\Release\net6.0\publish\MineCv.dll
+D:\Dev\Web\MineCv\bin\Release\net6.0\publish\MineCv.deps.json
+D:\Dev\Web\MineCv\bin\Release\net6.0\publish\MineCv.runtimeconfig.json
+D:\Dev\Web\MineCv\bin\Release\net6.0\publish\MineCv.pdb

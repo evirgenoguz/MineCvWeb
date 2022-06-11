@@ -1,0 +1,23 @@
+﻿@model ResumeDetail
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">CV Oluştur</h2>
+        </div>
+
+        <div class="mb-3">
+             <label asp-for="Resume.Name" class="mb-3">İsim: </label> <input asp-for="Resume.Name" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+             <label asp-for="Resume.Surname" class="mb-3">Soyisim: </label> <input asp-for="Resume.Surname" class="form-control"/>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:150px">Oluştur</button>
+    </div>
+</form>
+

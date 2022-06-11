@@ -1,0 +1,67 @@
+﻿@model ResumeDetail
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="card border-primary mb-3 mt-3" style="max-width: 100rem;">
+  <div class="card-header">@Model.Resume.JobTitle</div>
+  <div class="card-body">
+    <h4 class="card-title">@Model.Resume.Name @Model.Resume.Surname</h4>
+    <h5>Yaş: @Model.Resume.Age</h5>
+    <br/>
+    
+    <div style="display:flex; justify-content:space-around;">
+        <div class="card border-secondary mb-3" style="width: 35rem;">
+            <div class="card-header">Eğitim</div>
+            <div class="card-body">
+                <h4 class="card-title">@Model.Education.University</h4>
+                <h6>@Model.Education.Department</h6>
+                <h6>@Model.Education.EntranceYear - @Model.Education.GraduationYear</h6>
+            </div>
+        </div>
+
+        <div class="card border-secondary mb-3" style="width: 35rem;">
+            <div class="card-header">İletişim</div>
+            <div class="card-body">
+                <h4 class="card-title">@Model.Resume.PhoneNumber</h4>
+                <h6>@Model.User.Email</h6>
+                <h6>@Model.Resume.Adress</h6>
+            </div>
+        </div>
+    </div>
+
+    
+   
+    <div style="display:flex; justify-content:space-around;">
+        <div class="card border-secondary mb-3" style="width: 35rem;">
+            <div class="card-header">Yetenekler</div>
+            <div class="card-body">
+                @foreach (var skill in Model.Skills)
+                {
+                    <h4 class="card-title">@skill.SkillName</h4>    
+                }
+            </div>
+        </div>
+
+        <div class="card border-secondary mb-3" style="width: 35rem;">
+            <div class="card-header">Yabancı Dil</div>
+            <div class="card-body">
+                    @foreach(var language in Model.Languages)
+                    {
+                        <h4 class="card-title">@language.LanguageName</h4>
+                        <h5>@language.LanguageLevel</h5>
+                    }     
+            </div>
+        </div>
+
+
+    </div>
+
+    <hr></hr>
+    <br>
+    <h3>Niyet Mektubu</h3>
+    <br>
+    <p class="card-text">@Model.Resume.MyDescription</p>
+  </div>
+</div>
+

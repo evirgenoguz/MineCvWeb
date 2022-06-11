@@ -1,0 +1,2 @@
+D:\Dev\Web\MineCv\bin\Debug\net6.0\MineCv.exe
+D:\Dev\Web\MineCv\bin\Debug\net6.0\MineCv.dll
