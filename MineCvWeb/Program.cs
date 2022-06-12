@@ -11,12 +11,16 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
     ));
 
 
+//Session State
+builder.Services.AddDistributedMemoryCache();
+
 builder.Services.AddSession(options =>
 {
-    options.Cookie.Name = ".AdventureWorks.Session";
-    options.IdleTimeout = TimeSpan.FromSeconds(10);
+    options.IdleTimeout = TimeSpan.FromSeconds(30 * 60);
+    options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+
 //Deðiþikleri almak için f5 atmamýz yetmesi için
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
@@ -38,6 +42,8 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+//Session
+app.UseSession();
 
 app.MapControllerRoute(
     //Ýlk girdiðimizde gözüken ekran

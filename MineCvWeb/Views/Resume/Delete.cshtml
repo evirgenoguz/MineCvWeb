@@ -1,0 +1,88 @@
+﻿@model ResumeDetail
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<form method="post" asp-action="Delete">
+    <input asp-for="User.Id" hidden/>
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">CV Düzenle</h2>
+        </div>
+
+        <div class="mb-3">
+             <label asp-for="Resume.Name" class="mb-3">İsim: </label> <input asp-for="Resume.Name" disabled class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+             <label asp-for="Resume.Surname" class="mb-3">Soyisim: </label> <input asp-for="Resume.Surname" disabled class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+             <label asp-for="Resume.Age" class="mb-3">Yaş: </label> <input asp-for="Resume.Age" disabled class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+             <label asp-for="Resume.JobTitle" class="mb-3">Pozisyon: </label> <input asp-for="Resume.JobTitle" disabled class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+             <label asp-for="Resume.PhoneNumber" class="mb-3">Telefon No: </label> <input asp-for="Resume.PhoneNumber" disabled class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+             <label asp-for="User.Email" class="mb-3">Mail: </label> <input asp-for="User.Email" disabled class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+             <label asp-for="Resume.Adress" class="mb-3">Adres: </label> <input asp-for="Resume.Adress" disabled class="form-control"/>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-6">
+                 <label asp-for="Education.University" class="mb-3">Üniversite: </label> <input asp-for="Education.University" disabled class="form-control"/>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="Education.Department" class="mb-3">Bölüm: </label> <input asp-for="Education.Department" disabled class="form-control"/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-2">
+                <label asp-for="Education.GPA" class="mb-3">Ortalama: </label> <input asp-for="Education.GPA" disabled class="form-control"/>
+            </div>
+            <div class="mb-3 col-5">
+                 <label asp-for="Education.EntranceYear" class="mb-3">Giriş Yılı: </label> <input asp-for="Education.EntranceYear" disabled class="form-control"/>
+            </div>
+            <div class="mb-3 col-5">
+                <label asp-for="Education.GraduationYear" class="mb-3">Mezuniyet Yılı: </label> <input asp-for="Education.GraduationYear" disabled class="form-control"/>
+            </div>
+
+        </div>
+        
+
+        <div class="mb-3">
+             <label asp-for="Skills[0].SkillName" class="mb-3">Yetenekler: </label> <input asp-for="Skills[0].SkillName" disabled class="form-control"/>
+        </div>
+        
+        <div class="row">
+            <div class="mb-3 col-6">
+                <label asp-for="Languages[0].LanguageName" class="mb-3">Dil: </label> <input asp-for="Languages[0].LanguageName" disabled class="form-control"/>
+            </div>
+            <div class="mb-3 col-6">
+                <label asp-for="Languages[0].LanguageLevel" class="mb-3">Dil Seviyesi: </label> <input asp-for="Languages[0].LanguageLevel" disabled class="form-control"/>
+            </div>
+        </div>
+        
+       
+
+        <div class="mb-3">
+             <label asp-for="Resume.MyDescription" class="mb-3">Niyet Mektubu: </label> <textarea asp-for="Resume.MyDescription" rows="8" disabled class="form-control"></textarea>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-danger" style="width:150px">Sil</button>
+    </div>
+</form>
+

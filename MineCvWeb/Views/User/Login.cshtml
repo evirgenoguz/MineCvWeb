@@ -1,0 +1,48 @@
+﻿@using MineCvWeb.Models
+@model User
+@{
+    ViewData["Title"] = "Login";
+}
+
+<form method="post">
+<section class="gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-primary text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <div class="mb-md-5 mt-md-4 pb-5">
+
+              <h2 class="fw-bold mb-2 text-uppercase">Giriş Yap</h2>
+              <p class="text-white-50 mb-5">Email ve şifrenizle giriş yapınız</p>
+
+              <div class="form-outline form-white mb-4">
+                <input asp-for="Email" class="form-control form-control-lg"/>
+                <label class="form-label">Email</label>
+              </div>
+
+              <div class="form-outline form-white mb-4">
+                <input asp-for="Password" class="form-control form-control-lg" type="password"/>
+                <label class="form-label">Şifre</label>
+              </div>
+
+              <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Şifrenizi mi unuttunuz?</a></p>
+
+              <button class="btn btn-outline-light btn-lg px-5" type="submit">Giriş Yap</button>
+
+              
+            </div>
+
+            <div>
+              <p class="mb-0">Hesabınız yok mu? <a asp-area="" asp-controller="User" asp-action="Register" class="link p-2">Kayıt Ol</a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</form>

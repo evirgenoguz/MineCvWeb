@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MineCvWeb.Data;
+using MineCvWeb.Models;
+using Newtonsoft.Json;
+using System.Security.Claims;
 using MineCvWeb.Models;
 
 namespace MineCvWeb.Controllers
@@ -14,24 +18,67 @@ namespace MineCvWeb.Controllers
             _db = db;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
 
+            var user = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("UserSession"));
+
             ResumeDetail resumeDetail = new ResumeDetail();
-            resumeDetail.User = (User)_db.Users.Where(u => u.Id == 1).SingleOrDefault(); //buradaki 1 daha sonrasında tıklanan userın id si olacak
-            resumeDetail.Resume = (Resume)_db.Resumes.Where(r => r.UserId == resumeDetail.User.Id).SingleOrDefault();
-            resumeDetail.Education = (Education)_db.Eduations.Where(e => e.UserId == resumeDetail.User.Id).SingleOrDefault();
+            resumeDetail.User = (User)_db.Users.Where(u => u.Id == user.Id).FirstOrDefault(); //buradaki 1 daha sonrasında tıklanan userın id si olacak
+            resumeDetail.Resume = (Resume)_db.Resumes.Where(r => r.UserId == resumeDetail.User.Id).FirstOrDefault();
+            resumeDetail.Education = (Education)_db.Eduations.Where(e => e.UserId == resumeDetail.User.Id).FirstOrDefault();
             resumeDetail.Languages = (List<Language>)_db.Languages.Where(l => l.UserId == resumeDetail.User.Id).ToList();
             resumeDetail.Skills = (List<Skill>)_db.Skills.Where(s => s.UserId == resumeDetail.User.Id).ToList();
             resumeDetail.Experiences = (List<Experience>)_db.Experiences.Where(e => e.UserId == resumeDetail.User.Id).ToList();
 
-
             return View(resumeDetail);
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<ActionResult> Login(User user)
+        {
+            ResumeDetail resumeDetail = new ResumeDetail();
+
+            var loggedUser = _db.Users.Where(u => u.Email == user.Email && u.Password == user.Password).SingleOrDefault();
+            if (loggedUser != null)
+            {
+
+                HttpContext.Session.SetString("UserSession", JsonConvert.SerializeObject(loggedUser));
+                
+
+                return RedirectToAction("Index", "User");
+                
+                
+            }
+
+            return RedirectToAction("User", "Login");
+        }
+
+        [Authorize]
+        public ActionResult Logout()
+        {
+            return View();
+        }
+
+       
         public IActionResult Register()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(User user)
+        {
+            _db.Users.Add(user);
+            _db.SaveChanges();
+            return RedirectToAction("Login", "User");
         }
     }
 }

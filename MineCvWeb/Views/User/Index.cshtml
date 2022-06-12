@@ -4,49 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-
-
-<section class="vh-100 gradient-custom">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card bg-dark text-white" style="border-radius: 1rem;">
-          <div class="card-body p-5 text-center">
-
-            <div class="mb-md-5 mt-md-4 pb-5">
-
-              <h2 class="fw-bold mb-2 text-uppercase">Giriş Yap</h2>
-              <p class="text-white-50 mb-5">Email ve şifrenizle giriş yapınız</p>
-
-              <div class="form-outline form-white mb-4">
-                <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                <label class="form-label" for="typeEmailX">Email</label>
-              </div>
-
-              <div class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
-                <label class="form-label" for="typePasswordX">Şifre</label>
-              </div>
-
-              <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Şifrenizi mi unuttunuz?</a></p>
-
-              <button class="btn btn-outline-light btn-lg px-5" type="submit">Giriş Yap</button>
-
-            </div>
-
-            <div>
-              <p class="mb-0">Hesabınız yok mu? <a asp-area="" asp-controller="User" asp-action="Register" class="link p-2">Kayıt Ol</a>
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
+@if(Model.Resume != null)
+{
     <div class="card border-primary mb-3 mt-3" style="max-width: 100rem;">
   <div class="card-header">@Model.Resume.JobTitle</div>
   <div class="card-body">
@@ -108,7 +67,43 @@
     <p class="card-text">@Model.Resume.MyDescription</p>
   </div>
 </div>
-</section>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <a asp-area="" asp-controller="Resume" asp-action="Edit" class="btn btn-info p-3">Güncelle</a>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-area="" asp-controller="Resume" asp-action="Delete" class="btn btn-danger p-3">Sil</a>
+        </div>
+    </div>
+</div>
+
+}
+
+@if (Model.Resume == null)
+{
+    <body>
+
+-
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    
+    <div class="text-center"> 
+      <h1>Cv oluşturmak için butona tıklayınız.</h1>
+      <div class="text-center">
+            <a asp-area="" asp-controller="Resume" asp-action="Create" class="btn btn-primary p-3"><i class="bi bi-plus-circle"></i> &nbsp; CV Oluştur</a>
+        </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+</body>
+}
 
 
 

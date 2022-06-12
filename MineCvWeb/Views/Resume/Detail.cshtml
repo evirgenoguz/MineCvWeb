@@ -3,7 +3,9 @@
     ViewData["Title"] = "Detail";
 }
 
-<div class="card border-primary mb-3 mt-3" style="max-width: 100rem;">
+@if(Model.Resume != null)
+{
+    <div class="card border-primary mb-3 mt-3" style="max-width: 100rem;">
   <div class="card-header">@Model.Resume.JobTitle</div>
   <div class="card-body">
     <h4 class="card-title">@Model.Resume.Name @Model.Resume.Surname</h4>
@@ -36,9 +38,12 @@
         <div class="card border-secondary mb-3" style="width: 35rem;">
             <div class="card-header">Yetenekler</div>
             <div class="card-body">
-                @foreach (var skill in Model.Skills)
+                @if(Model.Skills != null)
                 {
-                    <h4 class="card-title">@skill.SkillName</h4>    
+                    @foreach (var skill in Model.Skills)
+                    {
+                        <h4 class="card-title">@skill.SkillName</h4>    
+                    }            
                 }
             </div>
         </div>
@@ -46,11 +51,14 @@
         <div class="card border-secondary mb-3" style="width: 35rem;">
             <div class="card-header">Yabancı Dil</div>
             <div class="card-body">
-                    @foreach(var language in Model.Languages)
+                @if (Model.Languages != null)
+                {
+                   @foreach(var language in Model.Languages)
                     {
                         <h4 class="card-title">@language.LanguageName</h4>
                         <h5>@language.LanguageLevel</h5>
-                    }     
+                    } 
+                }        
             </div>
         </div>
 
@@ -64,4 +72,12 @@
     <p class="card-text">@Model.Resume.MyDescription</p>
   </div>
 </div>
+}
+
+@if (Model.Resume == null)
+{
+    <h1>Ekelniyor</h1>
+}
+
+
 
