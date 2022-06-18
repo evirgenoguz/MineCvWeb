@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAg51x49vgHUGDORqBx+R5KQAAAAACAAAAAAAQZgAAAAEAACAAAACdyONeT5amu6IEMWAOCPrUR615lZXPU19aFwvbmW1FeQAAAAAOgAAAAAIAACAAAACDUvDjnXgTwbuDcqbRFksmM6+3TKhRHJdHj1rJeaJMh4AAAAAPOpmcBnJgF/9HJ/8G7x6tp2OlMLgMys1Zke0Dr7hFTLd5uPdi+8fiY+DkfW4ot/u+kfYZRE1ESutCfx3SRuqmGZ5JRF3WoQZESrOiJ7iReLBe9swEQ88aO3f9WgmkM4klpO1JfRuvx5J5Cu5iEuro0i2xPq2XpsBuNvHzC8W0q0AAAAD87QAeXkCl6S9PIHLSvRmzdOIV1YB9Dpk2DDaxjLMv4EHsW2LM5Q71/NmlXBpilpfvolb5x/xW4wQPPDOdQ2Pn</EncryptedPassword>
+    <History>True|2022-06-18T12:35:51.0900685Z;True|2022-06-18T15:21:47.8156806+03:00;True|2022-06-18T14:04:24.5335496+03:00;False|2022-06-18T14:00:54.7959660+03:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=tcp:minecvwebdatabase.database.windows.net,1433%3bInitial Catalog=minecvwebdatabase%3bPersist Security Info=False%3bUser ID=admin_minecv%3bPassword=webProje22%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="MineCvWeb.Data.ApplicationDbContext">
+      <Value>Server=tcp:minecvwebdatabase.database.windows.net,1433%3bInitial Catalog=minecvwebdatabase%3bPersist Security Info=False%3bUser ID=admin_minecv%3bPassword=webProje22%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

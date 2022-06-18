@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MineCvWeb.Models;
+using Newtonsoft.Json;
 using System.Diagnostics;
 
 namespace MineCvWeb.Controllers
@@ -16,7 +17,21 @@ namespace MineCvWeb.Controllers
 
         public IActionResult Index()
         {
-            return View();
+
+            User user = new User();
+            try
+            {
+
+                user = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("UserSession"));
+                return View(user);
+                
+            } catch (Exception e)
+            {
+
+            }
+
+
+                return View();
         }
 
         public IActionResult Privacy()

@@ -1,4 +1,7 @@
-﻿@using MineCvWeb.Models
+﻿@model User
+@using MineCvWeb.Models
+
+
 
 <div class="p-5 container-fluid bg-2 text-center">
   
@@ -11,8 +14,10 @@
   <p>Giriş yapmadan özgeçmişleri görebilir<br/>
       Giriş yaparak kendi özgeçmişiniz oluşturabilir ve ya düzenleyebilirsiniz.</p>
   
-
-     
-    <button type="button" class="btn btn-primary p-2 m-5"><a class="text-light" asp-area="" asp-controller="User" asp-action="Login">Giriş Yap</a></button>
+      
+    @if(Model == null)
+    {
+        <button type="button" class="btn btn-primary p-2 m-5"><a class="text-light" asp-area="" asp-controller="User" asp-action="Login">Giriş Yap</a></button>    
+    }    
     <button type="button" class="btn btn-primary  p-2 m-5"><a class="text-light" asp-area="" asp-controller="Resume" asp-action="Index">Özgeçmişler</a></button>
 </div>

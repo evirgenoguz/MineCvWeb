@@ -4,7 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-@if(Model.Resume != null)
+
+@if(Model.Resume != null && Model.User != null)
 {
     <div class="card border-primary mb-3 mt-3" style="max-width: 100rem;">
   <div class="card-header">@Model.Resume.JobTitle</div>
@@ -81,29 +82,28 @@
 
 }
 
-@if (Model.Resume == null)
+@if (Model.Resume == null && Model.User != null)
 {
-    <body>
+    <div class="container-fluid text-center">    
+        <div class="row content">
 
--
-  
-<div class="container-fluid text-center">    
-  <div class="row content">
-    
-    <div class="text-center"> 
-      <h1>Cv oluşturmak için butona tıklayınız.</h1>
-      <div class="text-center">
-            <a asp-area="" asp-controller="Resume" asp-action="Create" class="btn btn-primary p-3"><i class="bi bi-plus-circle"></i> &nbsp; CV Oluştur</a>
+            <div class="text-center"> 
+                <h1>Cv oluşturmak için butona tıklayınız.</h1>
+                <div class="text-center">
+                    <a asp-area="" asp-controller="Resume" asp-action="Create" class="btn btn-primary p-3"><i class="bi bi-plus-circle"></i> &nbsp; CV Oluştur</a>
+                </div>
+            </div>
+
         </div>
     </div>
-    
-  </div>
-</div>
-
-
-
-</body>
 }
+@if(Model.User == null && Model.Resume == null)
+{
+    <h1>Giriş Yaparak Cv oluşturabilirsiniz</h1>
+    <button type="button" class="btn btn-primary p-2 m-5"><a class="text-light" asp-area="" asp-controller="User" asp-action="Login">Giriş Yap</a></button>            
+}
+
+
 
 
 

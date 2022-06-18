@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uBLBvA8eIEM6bSXM0kRQbEhGxPExKIRnzQ8Fwhk5gbvXMiMRY9lk1p6m9d7MmFBEdJFPwMuRb9tpGiBL9H3bNQ==",
+  "dgSpecHash": "mjummjBUYDPsKDwV0+efmPyfqOOzP/gVHxwNoVfIwsis4iilT1Nqt+B4/kqTm4ryKq49JEitaeWYp4sGk9HpJA==",
   "success": true,
   "projectFilePath": "D:\\Dev\\Web\\MineCv\\MineCvWeb\\MineCvWeb.csproj",
   "expectedPackageFiles": [
@@ -205,9 +205,9 @@
     "C:\\Users\\evirgenOguz\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
     "C:\\Users\\evirgenOguz\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\evirgenOguz\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\evirgenOguz\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\6.0.5\\microsoft.netcore.app.runtime.win-x86.6.0.5.nupkg.sha512",
-    "C:\\Users\\evirgenOguz\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\6.0.5\\microsoft.windowsdesktop.app.runtime.win-x86.6.0.5.nupkg.sha512",
-    "C:\\Users\\evirgenOguz\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\6.0.5\\microsoft.aspnetcore.app.runtime.win-x86.6.0.5.nupkg.sha512"
+    "C:\\Users\\evirgenOguz\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\6.0.6\\microsoft.netcore.app.runtime.win-x86.6.0.6.nupkg.sha512",
+    "C:\\Users\\evirgenOguz\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\6.0.6\\microsoft.windowsdesktop.app.runtime.win-x86.6.0.6.nupkg.sha512",
+    "C:\\Users\\evirgenOguz\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\6.0.6\\microsoft.aspnetcore.app.runtime.win-x86.6.0.6.nupkg.sha512"
   ],
   "logs": []
 }

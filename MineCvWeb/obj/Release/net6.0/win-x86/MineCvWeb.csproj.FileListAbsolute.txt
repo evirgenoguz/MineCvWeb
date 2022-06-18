@@ -868,7 +868,6 @@ D:\Dev\Web\MineCv\MineCvWeb\bin\Release\net6.0\win-x86\dbgshim.dll
 D:\Dev\Web\MineCv\MineCvWeb\bin\Release\net6.0\win-x86\hostfxr.dll
 D:\Dev\Web\MineCv\MineCvWeb\bin\Release\net6.0\win-x86\hostpolicy.dll
 D:\Dev\Web\MineCv\MineCvWeb\bin\Release\net6.0\win-x86\mscordaccore.dll
-D:\Dev\Web\MineCv\MineCvWeb\bin\Release\net6.0\win-x86\mscordaccore_x86_x86_6.0.522.21309.dll
 D:\Dev\Web\MineCv\MineCvWeb\bin\Release\net6.0\win-x86\mscordbi.dll
 D:\Dev\Web\MineCv\MineCvWeb\bin\Release\net6.0\win-x86\mscorrc.dll
 D:\Dev\Web\MineCv\MineCvWeb\bin\Release\net6.0\win-x86\msquic.dll
@@ -892,3 +891,4 @@ D:\Dev\Web\MineCv\MineCvWeb\obj\Release\net6.0\win-x86\refint\MineCvWeb.dll
 D:\Dev\Web\MineCv\MineCvWeb\obj\Release\net6.0\win-x86\MineCvWeb.pdb
 D:\Dev\Web\MineCv\MineCvWeb\obj\Release\net6.0\win-x86\MineCvWeb.genruntimeconfig.cache
 D:\Dev\Web\MineCv\MineCvWeb\obj\Release\net6.0\win-x86\ref\MineCvWeb.dll
+D:\Dev\Web\MineCv\MineCvWeb\bin\Release\net6.0\win-x86\mscordaccore_x86_x86_6.0.622.26707.dll

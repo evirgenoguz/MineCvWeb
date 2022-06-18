@@ -21,18 +21,29 @@ namespace MineCvWeb.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-
-            var user = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("UserSession"));
-
+            User user = new User();
             ResumeDetail resumeDetail = new ResumeDetail();
-            resumeDetail.User = (User)_db.Users.Where(u => u.Id == user.Id).FirstOrDefault(); //buradaki 1 daha sonrasında tıklanan userın id si olacak
-            resumeDetail.Resume = (Resume)_db.Resumes.Where(r => r.UserId == resumeDetail.User.Id).FirstOrDefault();
-            resumeDetail.Education = (Education)_db.Eduations.Where(e => e.UserId == resumeDetail.User.Id).FirstOrDefault();
-            resumeDetail.Languages = (List<Language>)_db.Languages.Where(l => l.UserId == resumeDetail.User.Id).ToList();
-            resumeDetail.Skills = (List<Skill>)_db.Skills.Where(s => s.UserId == resumeDetail.User.Id).ToList();
-            resumeDetail.Experiences = (List<Experience>)_db.Experiences.Where(e => e.UserId == resumeDetail.User.Id).ToList();
+            try
+            {
+                user = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("UserSession"));
+                
+                resumeDetail.User = (User)_db.Users.Where(u => u.Id == user.Id).FirstOrDefault(); //buradaki 1 daha sonrasında tıklanan userın id si olacak
+                resumeDetail.Resume = (Resume)_db.Resumes.Where(r => r.UserId == resumeDetail.User.Id).FirstOrDefault();
+                resumeDetail.Education = (Education)_db.Eduations.Where(e => e.UserId == resumeDetail.User.Id).FirstOrDefault();
+                resumeDetail.Languages = (List<Language>)_db.Languages.Where(l => l.UserId == resumeDetail.User.Id).ToList();
+                resumeDetail.Skills = (List<Skill>)_db.Skills.Where(s => s.UserId == resumeDetail.User.Id).ToList();
+                resumeDetail.Experiences = (List<Experience>)_db.Experiences.Where(e => e.UserId == resumeDetail.User.Id).ToList();
+
+
+                
+            } catch(Exception e)
+            {
+                
+            }
+
 
             return View(resumeDetail);
+
         }
 
         public ActionResult Login()
@@ -58,7 +69,7 @@ namespace MineCvWeb.Controllers
                 
             }
 
-            return RedirectToAction("User", "Login");
+            return RedirectToAction("Login", "User");
         }
 
         [Authorize]
