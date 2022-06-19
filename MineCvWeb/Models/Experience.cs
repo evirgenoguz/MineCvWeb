@@ -6,7 +6,6 @@ namespace MineCvWeb.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
         public int UserId { get; set; }
         public string JobTitle { get; set; }
         public string Company { get; set; }

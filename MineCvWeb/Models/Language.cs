@@ -8,7 +8,9 @@ namespace MineCvWeb.Models
         public int Id { get; set; }
         [Required]
         public int UserId { get; set; }
+        [Required]
         public string LanguageName { get; set; }
+        [Required]
         public string LanguageLevel { get; set; }
     }
 }

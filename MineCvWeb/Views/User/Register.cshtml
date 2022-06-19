@@ -13,20 +13,30 @@
 
         <div class="mb-3">
              <label asp-for="Name" class="mb-3">İsim: </label> <input asp-for="Name" class="form-control"/>
+             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
              <label asp-for="Surname" class="mb-3">Soyisim: </label> <input asp-for="Surname" class="form-control"/>
-        </div>
+             <span asp-validation-for="Surname" class="text-danger"></span>
+         </div>
 
         <div class="mb-3">
              <label asp-for="Email" class="mb-3">E-mail: </label> <input asp-for="Email" class="form-control"/>
-        </div>
+             <span asp-validation-for="Email" class="text-danger"></span>
+         </div>
 
         <div class="mb-3">
              <label asp-for="Password" class="mb-3">Şifre: </label> <input asp-for="Password" class="form-control"/>
-        </div>
+             <span asp-validation-for="Password" class="text-danger"></span>
+         </div>
 
         <button type="submit" class="btn btn-primary" style="width:150px">Hesap Oluştur</button>
     </div>
 </form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}

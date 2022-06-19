@@ -85,11 +85,17 @@ namespace MineCvWeb.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Register(User user)
         {
-            _db.Users.Add(user);
-            _db.SaveChanges();
-            return RedirectToAction("Login", "User");
+            if (ModelState.IsValid) {
+                _db.Users.Add(user);
+                _db.SaveChanges();
+                return RedirectToAction("Login", "User");
+            }
+
+            return View(user);
+            
         }
     }
 }

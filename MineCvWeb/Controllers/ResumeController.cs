@@ -29,25 +29,32 @@ namespace MineCvWeb.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(ResumeDetail resumeDetail)
         {
-            var user = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("UserSession"));
+            if (ModelState.ErrorCount <= 4)
+            {
+                var user = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("UserSession"));
 
-            resumeDetail.Resume.UserId = user.Id;
-            resumeDetail.Education.UserId = user.Id;
-            resumeDetail.Skills[0].UserId = user.Id;
-            resumeDetail.Languages[0].UserId = user.Id;
+                resumeDetail.Resume.UserId = user.Id;
+                resumeDetail.Education.UserId = user.Id;
+                resumeDetail.Skills[0].UserId = user.Id;
+                resumeDetail.Languages[0].UserId = user.Id;
 
 
 
+
+                _db.Resumes.Add(resumeDetail.Resume);
+                _db.Eduations.Add(resumeDetail.Education);
+                _db.Skills.Add(resumeDetail.Skills[0]);
+                _db.Languages.Add(resumeDetail.Languages[0]);
+                _db.SaveChanges();
+
+                return RedirectToAction("Index", "Resume");
+            }
+
+            return View(resumeDetail);
             
-            _db.Resumes.Add(resumeDetail.Resume);
-            _db.Eduations.Add(resumeDetail.Education);
-            _db.Skills.Add(resumeDetail.Skills[0]);
-            _db.Languages.Add(resumeDetail.Languages[0]);
-            _db.SaveChanges();
-
-            return RedirectToAction("Index", "Resume");
         }
 
         public IActionResult Edit()
@@ -73,27 +80,36 @@ namespace MineCvWeb.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(ResumeDetail resumeDetail)
         {
-            var user = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("UserSession"));
 
-            resumeDetail.Resume.UserId = user.Id;
-            resumeDetail.Education.UserId = user.Id;
-            resumeDetail.Skills[0].UserId = user.Id;
-            resumeDetail.Languages[0].UserId = user.Id;
+            if (ModelState.ErrorCount <= 4)
+            {
+                var user = JsonConvert.DeserializeObject<User>(HttpContext.Session.GetString("UserSession"));
 
-
-
-            
-            _db.Resumes.Update(resumeDetail.Resume);
-            _db.Eduations.Update(resumeDetail.Education);
-            _db.Skills.Update(resumeDetail.Skills[0]);
-            _db.Languages.Update(resumeDetail.Languages[0]);
-            _db.SaveChanges();
+                resumeDetail.Resume.UserId = user.Id;
+                resumeDetail.Education.UserId = user.Id;
+                resumeDetail.Skills[0].UserId = user.Id;
+                resumeDetail.Languages[0].UserId = user.Id;
 
 
 
-            return RedirectToAction("Index", "Resume");
+
+                _db.Resumes.Update(resumeDetail.Resume);
+                _db.Eduations.Update(resumeDetail.Education);
+                _db.Skills.Update(resumeDetail.Skills[0]);
+                _db.Languages.Update(resumeDetail.Languages[0]);
+                _db.SaveChanges();
+
+
+
+                return RedirectToAction("Index", "Resume");
+            }
+
+            return View(resumeDetail);
+
+           
         }
 
 
